@@ -1,4 +1,4 @@
-package com.commerzbank.library.book;
+package com.commerzbank.library.repository;
 
 import com.commerzbank.library.model.Book;
 import com.commerzbank.library.model.BookStatus;
@@ -6,7 +6,7 @@ import com.commerzbank.library.model.BookStatus;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookRepositoryImpl implements BookRepository {
+public class BookRepositoryImpl implements Repository<Book> {
     static final List<Book> bookList = new ArrayList<>();
 
     static {
@@ -18,7 +18,16 @@ public class BookRepositoryImpl implements BookRepository {
     }
 
     @Override
-    public List<Book> getAll() {
+    public List<Book> findAll() {
         return bookList;
+    }
+
+    @Override
+    public Book save(Book book) {
+    if(book == null) {
+        throw new IllegalArgumentException();
+    }
+        bookList.add(book);
+        return book;
     }
 }

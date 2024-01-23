@@ -1,18 +1,19 @@
 package com.commerzbank.library;
 
-import com.commerzbank.library.book.BookRepository;
-import com.commerzbank.library.book.BookRepositoryImpl;
-import com.commerzbank.library.book.BookService;
-import com.commerzbank.library.book.SearchCriteria;
 import com.commerzbank.library.model.Book;
+import com.commerzbank.library.model.BookStatus;
+import com.commerzbank.library.repository.BookRepositoryImpl;
+import com.commerzbank.library.repository.Repository;
+import com.commerzbank.library.service.BookService;
+import com.commerzbank.library.service.SearchCriteria;
 
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        final BookRepository bookRepository = new BookRepositoryImpl();
-        final BookService bookService = new BookService(bookRepository);
+        final Repository repository = new BookRepositoryImpl();
+        final BookService bookService = new BookService(repository);
         final SearchCriteria searchCriteria = new SearchCriteria();
         searchCriteria.setAuthor("Martin");
 
@@ -21,4 +22,6 @@ public class Main {
             System.out.println(book.getTitle());
         }
     }
+
+
 }

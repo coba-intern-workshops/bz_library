@@ -1,4 +1,4 @@
-package com.commerzbank.library.book;
+package com.commerzbank.library.service;
 
 public class SearchCriteria {
     private String author;
