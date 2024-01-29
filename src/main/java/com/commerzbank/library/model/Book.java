@@ -16,6 +16,14 @@ public class Book {
         this.bookStatus = bookStatus;
     }
 
+    public Book(UUID id, String title, String author, BookStatus bookStatus) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.bookStatus = bookStatus;
+    }
+
+
     public UUID getId() {
         return id;
     }
@@ -30,6 +38,20 @@ public class Book {
 
     public BookStatus getBookStatus() {
         return bookStatus;
+    }
+
+    public void setBookStatus(BookStatus bookStatus) {
+        this.bookStatus = bookStatus;
+    }
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", bookStatus=" + bookStatus +
+                '}';
     }
 
     @Override

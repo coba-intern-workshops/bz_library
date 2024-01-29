@@ -5,16 +5,18 @@ import com.commerzbank.library.model.BookStatus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public class BookRepositoryImpl implements Repository<Book> {
     static final List<Book> bookList = new ArrayList<>();
 
     static {
-        bookList.add(new Book("Clean Code", "Robert Martin", BookStatus.AVAILABLE));
-        bookList.add(new Book("Clean Code", "Robert Martin", BookStatus.AVAILABLE));
-        bookList.add(new Book("Java Persistence with Spring Data and Hibernate", "Catalin Tudose", BookStatus.AVAILABLE));
-        bookList.add(new Book("API Security in Action", "Neil Madden", BookStatus.DELETED));
-        bookList.add(new Book("Programowanie Aplikacji Bazodanowych w Hibernate", "Christian Bauer", BookStatus.LOST));
+        bookList.add(new Book(UUID.fromString("345eac60-fa7a-406d-95bd-9555f3608c55"), "Clean Code", "Robert Martin", BookStatus.AVAILABLE));
+        bookList.add(new Book(UUID.fromString("345eac60-fa7a-406d-95bd-9555f3608c56"),"Clean Code", "Robert Martin", BookStatus.AVAILABLE));
+        bookList.add(new Book(UUID.fromString("345eac60-fa7a-406d-95bd-9555f3608c57"),"Java Persistence with Spring Data and Hibernate", "Catalin Tudose", BookStatus.AVAILABLE));
+        bookList.add(new Book(UUID.fromString("345eac60-fa7a-406d-95bd-9555f3608c58"),"API Security in Action", "Neil Madden", BookStatus.DELETED));
+        bookList.add(new Book(UUID.fromString("345eac60-fa7a-406d-95bd-9555f3608c59"),"Programowanie Aplikacji Bazodanowych w Hibernate", "Christian Bauer", BookStatus.LOST));
     }
 
     @Override
@@ -24,10 +26,30 @@ public class BookRepositoryImpl implements Repository<Book> {
 
     @Override
     public Book save(Book book) {
-    if(book == null) {
-        throw new IllegalArgumentException();
-    }
+        if (book == null) {
+            throw new IllegalArgumentException();
+        }
         bookList.add(book);
         return book;
+    }
+
+    @Override
+    public Optional<Book> findById(UUID id) {
+        return bookList.stream().filter(book -> book.getId().equals(id)).findFirst();
+    }
+
+    @Override
+    public void delete(Book object) {
+        bookList.remove(object);
+    }
+
+    @Override
+    public void deleteById(UUID id) {
+        findById(id).ifPresent(bookList::remove);
+    }
+
+    @Override
+    public Long count() {
+        return (long) bookList.size();
     }
 }
