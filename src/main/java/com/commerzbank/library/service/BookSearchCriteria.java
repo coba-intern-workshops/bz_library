@@ -1,6 +1,6 @@
 package com.commerzbank.library.service;
 
-public class SearchCriteria {
+public class BookSearchCriteria {
     private String author;
 
     public String getAuthor() {

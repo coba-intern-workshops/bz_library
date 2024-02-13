@@ -2,13 +2,15 @@ package com.commerzbank.library.repository;
 
 import com.commerzbank.library.model.Book;
 import com.commerzbank.library.model.BookStatus;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public class BookRepositoryImpl implements Repository<Book> {
+@Repository
+public class BookRepositoryImpl implements RepositoryIfc<Book> {
     static final List<Book> bookList = new ArrayList<>();
 
     static {

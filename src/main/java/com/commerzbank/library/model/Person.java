@@ -17,6 +17,13 @@ public class Person {
         this.userType = userType;
     }
 
+    public Person(UUID id, String firstName, String lastName, UserType userType) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userType = userType;
+    }
+
     public UUID getId() {
         return id;
     }

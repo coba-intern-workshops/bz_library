@@ -1,10 +1,13 @@
 package com.commerzbank.library.repository;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-public interface Repository<T> {
+@Repository
+public interface RepositoryIfc<T> {
 
     List<T> findAll();
 

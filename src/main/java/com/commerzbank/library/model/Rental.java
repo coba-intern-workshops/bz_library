@@ -23,6 +23,15 @@ public class Rental {
         this.returned = returned;
     }
 
+    public Rental(Book book, Person person, LocalDate rentedOn, LocalDate rentedUntil) {
+        this.id = UUID.randomUUID();
+        this.book = book;
+        this.person = person;
+        this.rentedOn = rentedOn;
+        this.rentedUntil = rentedUntil;
+        this.returned = false;
+    }
+
     public Book getBook() {
         return book;
     }
@@ -41,6 +50,10 @@ public class Rental {
 
     public LocalDate getReturnedOn() {
         return returnedOn;
+    }
+
+    public UUID getId() {
+        return id;
     }
 
     public boolean isReturned() {
