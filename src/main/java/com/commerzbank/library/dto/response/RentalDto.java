@@ -1,7 +1,4 @@
-package com.commerzbank.library.dto.request;
-
-import com.commerzbank.library.model.Book;
-import com.commerzbank.library.model.Person;
+package com.commerzbank.library.dto.response;
 
 import java.time.LocalDate;
 import java.util.UUID;

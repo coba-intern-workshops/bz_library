@@ -60,6 +60,18 @@ public class Rental {
         return returned;
     }
 
+    public void setReturnedOn(LocalDate returnedOn) {
+        this.returnedOn = returnedOn;
+    }
+
+    public void setRentedUntil(LocalDate rentedUntil) {
+        this.rentedUntil = rentedUntil;
+    }
+
+    public void setReturned(boolean returned) {
+        this.returned = returned;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

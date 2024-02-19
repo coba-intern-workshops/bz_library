@@ -54,4 +54,8 @@ public class BookRepositoryImpl implements RepositoryIfc<Book> {
     public Long count() {
         return (long) bookList.size();
     }
+
+    public Optional<Book> findByTitleAndStatus(String title, BookStatus bookStatus) {
+        return bookList.stream().filter(book -> book.getTitle().equals(title) && book.getBookStatus() == bookStatus).findFirst();
+    }
 }

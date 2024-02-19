@@ -1,4 +1,4 @@
-package com.commerzbank.library.dto.request;
+package com.commerzbank.library.dto.response;
 
 import com.commerzbank.library.model.UserType;
 

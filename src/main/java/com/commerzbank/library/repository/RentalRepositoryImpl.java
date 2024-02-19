@@ -1,5 +1,6 @@
 package com.commerzbank.library.repository;
 
+import com.commerzbank.library.model.Book;
 import com.commerzbank.library.model.Rental;
 import org.springframework.stereotype.Repository;
 
@@ -44,5 +45,9 @@ public class RentalRepositoryImpl implements RepositoryIfc<Rental> {
     @Override
     public Long count() {
         return (long) rentalList.size();
+    }
+
+    public Optional<Rental> findByStatusAndBookId(Book book, boolean rentalStatus) {
+        return rentalList.stream().filter(rental -> rental.getBook().equals(book) && rental.isReturned() == rentalStatus).findFirst();
     }
 }

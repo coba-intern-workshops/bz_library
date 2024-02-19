@@ -1,6 +1,6 @@
 package com.commerzbank.library.mapper;
 
-import com.commerzbank.library.dto.request.RentalDto;
+import com.commerzbank.library.dto.response.RentalDto;
 import com.commerzbank.library.model.Rental;
 import org.springframework.stereotype.Component;
 

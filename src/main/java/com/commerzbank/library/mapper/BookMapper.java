@@ -1,6 +1,6 @@
 package com.commerzbank.library.mapper;
 
-import com.commerzbank.library.dto.request.BookDto;
+import com.commerzbank.library.dto.response.BookDto;
 import com.commerzbank.library.dto.request.BookStatusDto;
 import com.commerzbank.library.model.Book;
 import com.commerzbank.library.model.BookStatus;
@@ -17,6 +17,6 @@ public class BookMapper extends Mapper<BookDto, Book> {
     }
 
     private static Book mapToEntity(BookDto bookDto) {
-        return new Book(bookDto.id(),bookDto.title(),bookDto.author(), BookStatus.valueOf(bookDto.bookStatus().toString()));
+        return new Book(bookDto.id(), bookDto.title(), bookDto.author(), BookStatus.valueOf(bookDto.bookStatus().toString()));
     }
 }
